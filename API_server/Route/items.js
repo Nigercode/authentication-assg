@@ -88,24 +88,33 @@ itemRouter.put('/:id', (req, res) => {
 })
 
 //---DELETE AN ITEM
-
-
-
-
-
-
-
 itemRouter.delete('/:id', (req, res) => {
-    const id = req.params.id
+     const data = fs. readFileSync('./dataB/items.json');
+     const items = JSON.parse(data);
+    const id = req.params.id;
     const index = items.findIndex(item => item.id == id)
+    console.log(id)
+    console.log(index)
+    
     if (index == -1) {
-        res.status(404).end("item not found")
-        return
-    }
+    res.status(404).send("Item not found")
+    return
+     }
+    items.splice(index, 1)
+    fs.writeFile('./dataB/items.json', JSON.stringify(items), (err)=>{
+    if (err){
+    res.status(500)
+    
+   }
+    
+   })
+      res.json('item sucessfully deleted')
+ })
 
-    books.splice(index, 1)
-    res.json(items)
-})
+
+
+
+
 
 
 module.exports = itemRouter
