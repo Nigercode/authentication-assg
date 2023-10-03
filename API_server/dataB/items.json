@@ -1,0 +1,16 @@
+[{"item":"Sausage","price":500,"size":"medium","id":1},
+
+
+
+{"item":"Milk","price":700,"size":" Small","id":2},
+
+
+{"item":"Butter","price":2000,"size":"Large","id":3},{
+  
+  
+  
+  "item":"Cereal","price":5000,"size":"Large","id":4},
+  
+  
+  
+  {"item":"Cookies","price":1500,"size":"Small","id":5}]
